@@ -1,0 +1,33 @@
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.paddle {
+    position: absolute;
+    width: 20px;
+    height: 40px;
+    border-radius: 4%;
+    background: purple;
+}
+
+.puck {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: black;
+}
+
+.wrapper {
+    overflow: hidden;
+    width: 380px;
+    height: 250px;
+    border: 1px solid black;
+    border-radius: 1%;
+}
+
+#start {
+    width: 10%
+}
