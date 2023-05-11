@@ -64,30 +64,28 @@ const movePuckRight = () => {
     puck.style.left = `${x + PXMOVE}px`;
 }
 
-const puckMotion = () => {
-    let x = puck.getBoundingClientRect().left;
-    let y = puck.getBoundingClientRect().top;
+// const puckMotion = () => {
+//     let x = puck.getBoundingClientRect().left;
+//     let y = puck.getBoundingClientRect().top;
 
-    if (x < XMIN) {
-        if (leftInterval){
-            clearInterval(leftInterval)
-        }
-        rightInterval = setInterval(movePuckRight, DELAY);
-    }
+//     if (x < XMIN) {
+//         if (leftInterval) {
+//             clearInterval(leftInterval)
+//         }
+//         rightInterval = setInterval(movePuckRight, DELAY);
+//     }
 
-    if (y < YMIN) {
-        if (upInterval){
-            clearInterval(upInterval)
-        }
-        downInterval = setInterval(movePuckDown, DELAY);
-    }
-}
+//     if (y < YMIN) {
+//         if (upInterval) {
+//             clearInterval(upInterval)
+//         }
+//         downInterval = setInterval(movePuckDown, DELAY);
+//     }
+// }
 
-// puckMotion();
 const startGame = () => {
     rightInterval = setInterval(movePuckRight, DELAY);
     downInterval = setInterval(movePuckDown, DELAY);
     document.addEventListener("mousemove", movePaddle);
-    // puckMotion();
 }
 startButton.addEventListener("click", startGame);
