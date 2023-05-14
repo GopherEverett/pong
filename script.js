@@ -1,4 +1,5 @@
 let rightInterval
+let puckColor
 let leftInterval
 let upInterval
 let downInterval
@@ -33,8 +34,10 @@ const movePuckDown = () => {
     if (y > YMAX) {
         clearInterval(downInterval);
         upInterval = setInterval(movePuckUp, DELAY)
+        pickColor();
     }
     puck.style.top = `${y + PXMOVE}px`;
+    
 }
 const movePuckUp = () => {
     clearInterval(downInterval);
@@ -42,8 +45,10 @@ const movePuckUp = () => {
     if (y < YMIN) {
         clearInterval(upInterval);
         downInterval = setInterval(movePuckDown, DELAY)
+        pickColor();
     }
     puck.style.top = `${y - PXMOVE}px`;
+  
 }
 const movePuckLeft = () => {
     clearInterval(rightInterval)
@@ -51,8 +56,10 @@ const movePuckLeft = () => {
     if (x < XMIN) {
         clearInterval(leftInterval)
         rightInterval = setInterval(movePuckRight, DELAY);
+        pickColor();
     }
     puck.style.left = `${x - PXMOVE}px`;
+    
 }
 const movePuckRight = () => {
     clearInterval(leftInterval)
@@ -60,8 +67,10 @@ const movePuckRight = () => {
     if (x > XMAX) {
         clearInterval(rightInterval)
         leftInterval = setInterval(movePuckLeft, DELAY);
+        pickColor();
     }
     puck.style.left = `${x + PXMOVE}px`;
+    
 }
 
 // const puckMotion = () => {
@@ -89,3 +98,12 @@ const startGame = () => {
     document.addEventListener("mousemove", movePaddle);
 }
 startButton.addEventListener("click", startGame);
+
+function pickColor(){
+    r = Math.random() * (254 - 0) + 0;
+    g = Math.random() * (254 - 0) + 0;
+    b = Math.random() * (254 - 0) + 0;
+
+    puckColor = 'rgb('+r+','+g+', '+b+')';
+    puck.style.backgroundColor = puckColor;
+}
